@@ -1,0 +1,2137 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 21,
+  "iteration": 1690233498098,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 52,
+      "panels": [],
+      "title": "Base metrics",
+      "type": "row"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "from": "0",
+              "id": 1,
+              "text": "ACTIVE unit",
+              "to": "100000000000000000",
+              "type": 2,
+              "value": "1"
+            }
+          ],
+          "noValue": "PASSIVE unit",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "yellow",
+                "value": null
+              },
+              {
+                "color": "blue",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 46,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.17",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_uptime{agent_host=\"$pan_firewall\",cluster=\"$cluster\",panSysHAState=\"active\"}",
+          "interval": "",
+          "legendFormat": " ",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "PAN Firewall state",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-text",
+            "filterable": false
+          },
+          "mappings": [
+            {
+              "from": "",
+              "id": 1,
+              "text": "",
+              "to": "",
+              "type": 1,
+              "value": ""
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 50,
+      "options": {
+        "showHeader": false
+      },
+      "pluginVersion": "7.5.17",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "max(pan_firewall_uptime{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}) by (pa_version)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": " ",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "PAN Firewall version",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "Value": true
+            },
+            "indexByName": {},
+            "renameByName": {
+              "pa_version": ""
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "dtdhms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 44,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.17",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_uptime{agent_host=\"$pan_firewall\",cluster=\"$cluster\"} / 60",
+          "interval": "",
+          "legendFormat": "Uptime",
+          "refId": "A"
+        }
+      ],
+      "title": "PAN Firewall Uptime",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 35
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 3
+      },
+      "id": 19,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.17",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_hrProcessorLoad_1{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "PAN CPU Load (Control plane)",
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 35
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 3
+      },
+      "id": 34,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.17",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_hrProcessorLoad_2{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "PAN CPU Load (Data plane)",
+      "type": "gauge"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 3
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:157",
+          "alias": "% System CPU",
+          "color": "#FF9830"
+        },
+        {
+          "$$hashKey": "object:168",
+          "alias": "% User CPU",
+          "color": "#5794F2"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_hrProcessorLoad_1{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "interval": "1m",
+          "legendFormat": "% CPU Load 1",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_hrProcessorLoad_2{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "% CPU Load 2",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN CPU Usage",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:46",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:47",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 2,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 3
+      },
+      "hiddenSeries": false,
+      "id": 12,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:409",
+          "alias": "Used memory",
+          "color": "#F2495C"
+        },
+        {
+          "$$hashKey": "object:742",
+          "alias": "Total memory",
+          "color": "#5794F2"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "pan_buffers_hrStorageUsed{agent_host=\"$pan_firewall\",cluster=\"$cluster\",hrStorageDescr=\"Slot-1 Management Memory\"} * 1024",
+          "format": "time_series",
+          "instant": false,
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "Used memory",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "pan_buffers_hrStorageSize{agent_host=\"$pan_firewall\",cluster=\"$cluster\",hrStorageDescr=\"Slot-1 Management Memory\"} * 1024",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "Total memory",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN Mgmt Memory",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:389",
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:390",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bits"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 18,
+        "x": 0,
+        "y": 11
+      },
+      "hiddenSeries": false,
+      "id": 33,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1350",
+          "alias": "In Octets"
+        },
+        {
+          "$$hashKey": "object:1385",
+          "alias": "Out Octets"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "rate(pan_interfaces_ifHCInOctets{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.1\"}[$__rate_interval]) * 8",
+          "interval": "30s",
+          "legendFormat": "In Octets",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "rate(pan_interfaces_ifHCOutOctets{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.1\"}[$__rate_interval]) * -8",
+          "hide": false,
+          "interval": "30s",
+          "legendFormat": "Out Octets",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN tunnel.1: Throughput Mbits/sec",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1468",
+          "decimals": null,
+          "format": "bits",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1469",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 11
+      },
+      "hiddenSeries": false,
+      "id": 38,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1624",
+          "alias": "In Discards",
+          "color": "#FADE2A",
+          "dashes": true
+        },
+        {
+          "$$hashKey": "object:1632",
+          "alias": "Out Discards",
+          "color": "#FF9830",
+          "dashes": true
+        },
+        {
+          "$$hashKey": "object:1648",
+          "alias": "In Errors",
+          "color": "#F2495C"
+        },
+        {
+          "$$hashKey": "object:1656",
+          "alias": "Out Errors",
+          "color": "#B877D9"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifInDiscards{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.1\"}[$__rate_interval])",
+          "interval": "1m",
+          "legendFormat": "In Discards",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifOutDiscards{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.1\"}[$__rate_interval]) * -1",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "Out Discards",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifInErrors{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.1\"}[$__rate_interval])",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "In Errors",
+          "refId": "C"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifOutErrors{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.1\"}[$__rate_interval]) * -1",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "Out Errors",
+          "refId": "D"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN tunnel.1 Errors & Discards",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1517",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1518",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bits"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 18,
+        "x": 0,
+        "y": 19
+      },
+      "hiddenSeries": false,
+      "id": 35,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1350",
+          "alias": "In Octets",
+          "color": "#1F60C4"
+        },
+        {
+          "$$hashKey": "object:1385",
+          "alias": "Out Octets",
+          "color": "#FA6400"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "rate(pan_interfaces_ifHCInOctets{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.2\"}[$__rate_interval]) * 8",
+          "interval": "30s",
+          "legendFormat": "In Octets",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "rate(pan_interfaces_ifHCOutOctets{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.2\"}[$__rate_interval]) * -8",
+          "hide": false,
+          "interval": "30s",
+          "legendFormat": "Out Octets",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN tunnel.2: Throughput Mbits/sec",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1468",
+          "decimals": null,
+          "format": "bits",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1469",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 19
+      },
+      "hiddenSeries": false,
+      "id": 39,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1624",
+          "alias": "In Discards",
+          "color": "#FADE2A",
+          "dashes": true
+        },
+        {
+          "$$hashKey": "object:1632",
+          "alias": "Out Discards",
+          "color": "#FF9830",
+          "dashes": true
+        },
+        {
+          "$$hashKey": "object:1648",
+          "alias": "In Errors",
+          "color": "#F2495C"
+        },
+        {
+          "$$hashKey": "object:1656",
+          "alias": "Out Errors",
+          "color": "#B877D9"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifInDiscards{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.2\"}[$__rate_interval])",
+          "interval": "1m",
+          "legendFormat": "In Discards",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifOutDiscards{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.2\"}[$__rate_interval]) * -1",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "Out Discards",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifInErrors{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.2\"}[$__rate_interval])",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "In Errors",
+          "refId": "C"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifOutErrors{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.2\"}[$__rate_interval]) * -1",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "Out Errors",
+          "refId": "D"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN tunnel.2 Errors & Discards",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1517",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1518",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bits"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 18,
+        "x": 0,
+        "y": 27
+      },
+      "hiddenSeries": false,
+      "id": 36,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1350",
+          "alias": "In Octets",
+          "color": "#B877D9"
+        },
+        {
+          "$$hashKey": "object:1385",
+          "alias": "Out Octets",
+          "color": "#F2495C"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "rate(pan_interfaces_ifHCInOctets{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.3\"}[$__rate_interval]) * 8",
+          "interval": "1m",
+          "legendFormat": "In Octets",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "rate(pan_interfaces_ifHCOutOctets{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.3\"}[$__rate_interval]) * -8",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "Out Octets",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN tunnel.3: Throughput Mbits/sec",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1468",
+          "decimals": null,
+          "format": "bits",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1469",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 27
+      },
+      "hiddenSeries": false,
+      "id": 40,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1624",
+          "alias": "In Discards",
+          "color": "#FADE2A",
+          "dashes": true
+        },
+        {
+          "$$hashKey": "object:1632",
+          "alias": "Out Discards",
+          "color": "#FF9830",
+          "dashes": true
+        },
+        {
+          "$$hashKey": "object:1648",
+          "alias": "In Errors",
+          "color": "#F2495C"
+        },
+        {
+          "$$hashKey": "object:1656",
+          "alias": "Out Errors",
+          "color": "#B877D9"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifInDiscards{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.3\"}[$__rate_interval])",
+          "interval": "1m",
+          "legendFormat": "In Discards",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifOutDiscards{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.3\"}[$__rate_interval]) * -1",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "Out Discards",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifInErrors{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.3\"}[$__rate_interval])",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "In Errors",
+          "refId": "C"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_interfaces_ifOutErrors{agent_host=\"$pan_firewall\",cluster=\"$cluster\",if_name=\"tunnel.3\"}[$__rate_interval]) * -1",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "Out Errors",
+          "refId": "D"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN tunnel.3 Errors & Discards",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1517",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1518",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 35
+      },
+      "hiddenSeries": false,
+      "id": 42,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "increase(pan_drop_panSessionDiscard{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}[$__rate_interval])",
+          "interval": "1m",
+          "legendFormat": "Discarded Sessions",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_drop_panFlowHostServiceDeny{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}[$__rate_interval])",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "Service Denies",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN Session Discards & Denies",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1164",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1165",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 35
+      },
+      "hiddenSeries": false,
+      "id": 48,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1022",
+          "alias": "TCP drops",
+          "color": "#E02F44"
+        },
+        {
+          "$$hashKey": "object:1030",
+          "alias": "TCP OOW drops",
+          "color": "#B877D9"
+        },
+        {
+          "$$hashKey": "object:1038",
+          "alias": "TCP Exceed MSS",
+          "color": "#3274D9"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "increase(pan_global_counters_panTcpDropPacket{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}[$__rate_interval])",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "TCP drops",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_global_counters_panTcpDropOutOfWnd{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}[$__rate_interval])",
+          "interval": "1m",
+          "legendFormat": "TCP OOW drops",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "increase(pan_global_counters_panTcpExceedSegLimit{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}[$__rate_interval])",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "TCP Exceed MSS",
+          "refId": "C"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN TCP Drops",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1004",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1005",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 41
+      },
+      "hiddenSeries": false,
+      "id": 22,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:518",
+          "alias": "Active Sessions",
+          "color": "#8AB8FF"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "pan_vsys_panVsysActiveSessions{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "interval": "1m",
+          "legendFormat": "Active Sessions",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN Vsys Active Sessions",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:158",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:159",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 41
+      },
+      "hiddenSeries": false,
+      "id": 24,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:785",
+          "alias": "Server Conn",
+          "color": "#F2495C"
+        },
+        {
+          "$$hashKey": "object:591",
+          "alias": "Client Conn",
+          "color": "#FADE2A"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "pan_vsys_panVsysActiveTcpCps{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": "TCP Conn/sec",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "pan_vsys_panVsysActiveUdpCps{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "UDP Conn/sec",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "PAN Vsys TCP & UDP Conn/sec",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:224",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:225",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 49
+      },
+      "id": 54,
+      "panels": [],
+      "title": "Hardware metrics",
+      "type": "row"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "light-yellow",
+                "value": 2500
+              },
+              {
+                "color": "light-blue",
+                "value": 4000
+              },
+              {
+                "color": "light-yellow",
+                "value": 5000
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 50
+      },
+      "id": 56,
+      "options": {
+        "displayMode": "basic",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.17",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_fan1{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "interval": "1m",
+          "legendFormat": "Fan1",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_fan2{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "Fan2",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_fan3{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "Fan3",
+          "refId": "C"
+        }
+      ],
+      "title": "PAN Fan speeds (RPM)",
+      "type": "bargauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 30
+              },
+              {
+                "color": "yellow",
+                "value": 45
+              },
+              {
+                "color": "orange",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 60
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 50
+      },
+      "id": 57,
+      "options": {
+        "displayMode": "lcd",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.17",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_cpu_temp1{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "interval": "1m",
+          "legendFormat": "CPU Temp #1",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_cpu_temp2{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "CPU Temp #2",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_cpu_temp3{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "hide": false,
+          "interval": "1m",
+          "legendFormat": "CPU Temp #3",
+          "refId": "C"
+        },
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_cpu_temp4{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "CPU Temp #4",
+          "refId": "D"
+        },
+        {
+          "exemplar": true,
+          "expr": "pan_firewall_cpu_temp5{agent_host=\"$pan_firewall\",cluster=\"$cluster\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "CPU Temp #5",
+          "refId": "E"
+        }
+      ],
+      "title": "PAN CPU temp (Celcius)",
+      "type": "bargauge"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "pan-fw",
+          "value": "pan-fw"
+        },
+        "datasource": null,
+        "definition": "label_values(cluster)",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "PAN HA Cluster",
+        "multi": false,
+        "name": "cluster",
+        "options": [
+          {
+            "selected": true,
+            "text": "pan-fw",
+            "value": "pan-fw"
+          }
+        ],
+        "query": {
+          "query": "label_values(cluster)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "p1s-pa-1.hpl.com",
+          "value": "p1s-pa-1.hpl.com"
+        },
+        "datasource": null,
+        "definition": "label_values(agent_host)",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "PAN Firewall",
+        "multi": false,
+        "name": "pan_firewall",
+        "options": [
+          {
+            "selected": true,
+            "text": "p1s-pa-1.hpl.com",
+            "value": "p1s-pa-1.hpl.com"
+          },
+          {
+            "selected": false,
+            "text": "p1s-pa-2.hpl.com",
+            "value": "p1s-pa-2.hpl.com"
+          }
+        ],
+        "query": {
+          "query": "label_values(agent_host)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-3h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "PA firewalls",
+  "uid": "1vF0k48nk",
+  "version": 37
+}

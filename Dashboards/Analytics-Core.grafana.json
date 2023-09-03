@@ -1,0 +1,1376 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 22,
+  "links": [],
+  "panels": [
+    {
+      "dashboardFilter": "",
+      "dashboardTags": [],
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "folderId": null,
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 11,
+      "limit": 10,
+      "nameFilter": "",
+      "onlyAlertsOnDashboard": true,
+      "pluginVersion": "7.5.15",
+      "show": "current",
+      "sortOrder": 1,
+      "stateFilter": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Alerts",
+      "type": "alertlist"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 0,
+        "y": 6
+      },
+      "id": 7,
+      "options": {
+        "displayLabels": [],
+        "legend": {
+          "displayMode": "table",
+          "placement": "right",
+          "values": [
+            "value"
+          ]
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {}
+      },
+      "pluginVersion": "7.5.15",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{instance=~\"prod-rep-core01.hpl.com:9007\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "prod-rep-core01",
+          "refId": "Pending CI-P4"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{instance=~\"prod-rep-core02.hpl.com:9007\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "prod-rep-core02",
+          "refId": "Pending QA-P4"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{instance=~\"prod-rep-core03.hpl.com:9007\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "prod-rep-core03",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{instance=~\"prod-rep-core04.hpl.com:9007\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "prod-rep-core04",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{instance=~\"prod-rep-core05.hpl.com:9007\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "prod-rep-core05",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Pending Tasks By Server",
+      "transformations": [],
+      "type": "piechart"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 6,
+        "y": 6
+      },
+      "id": 6,
+      "options": {
+        "displayLabels": [],
+        "legend": {
+          "displayMode": "table",
+          "placement": "right",
+          "values": [
+            "value"
+          ]
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {}
+      },
+      "pluginVersion": "7.5.15",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{task_type=~\"AddElasticube\", instance=~\"prod-rep-core.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "AddElasticube",
+          "refId": "Pending AddElasticube"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{task_type=~\"DeleteElasticube\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "DeleteElasticube",
+          "refId": "Pending DeleteElasticube"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{task_type=~\"PopulateDatabase\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "PopulateDatabase",
+          "refId": "Pending PopulateDatabase"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{task_type=~\"ReplaceElasticube\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "ReplaceElasticube",
+          "refId": "Pending ReplaceElasticube"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{task_type=~\"RebuildElasticube\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "RebuildElasticube",
+          "refId": "Pending RebuildElasticube"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Pending Tasks By Task Type",
+      "transformations": [],
+      "type": "piechart"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 12,
+        "y": 6
+      },
+      "id": 8,
+      "options": {
+        "displayLabels": [],
+        "legend": {
+          "displayMode": "table",
+          "placement": "right",
+          "values": [
+            "value"
+          ]
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {}
+      },
+      "pluginVersion": "7.5.15",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{organization_type=~\"Parent\", instance=~\"prod-rep-core.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Parent",
+          "refId": "Pending Surveillance"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{organization_type=~\"Child\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Child",
+          "refId": "Pending POCA"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{organization_type=~\"Unknown\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Unknown",
+          "refId": "Pending Unknown"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Pending Tasks By Organization Type",
+      "transformations": [],
+      "type": "piechart"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 18,
+        "y": 6
+      },
+      "id": 9,
+      "options": {
+        "displayLabels": [],
+        "legend": {
+          "displayMode": "table",
+          "placement": "right",
+          "values": [
+            "value"
+          ]
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {}
+      },
+      "pluginVersion": "7.5.15",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{product_type=~\"Surveillance\", instance=~\"prod-rep-core.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Surveillance",
+          "refId": "Pending Surveillance"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{product_type=~\"Poca\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "POCA",
+          "refId": "Pending POCA"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Pending Tasks By Product",
+      "transformations": [],
+      "type": "piechart"
+    },
+    {
+      "alert": {
+        "alertRuleTags": {},
+        "conditions": [
+          {
+            "evaluator": {
+              "params": [
+                0
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "and"
+            },
+            "query": {
+              "params": [
+                "Pending prod-rep-core01",
+                "12h",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "min"
+            },
+            "type": "query"
+          },
+          {
+            "evaluator": {
+              "params": [
+                0
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "or"
+            },
+            "query": {
+              "params": [
+                "Pending prod-rep-core02",
+                "12h",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "min"
+            },
+            "type": "query"
+          },
+          {
+            "evaluator": {
+              "params": [
+                0
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "or"
+            },
+            "query": {
+              "params": [
+                "Pending prod-rep-core03",
+                "12h",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "min"
+            },
+            "type": "query"
+          },
+          {
+            "evaluator": {
+              "params": [
+                0
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "or"
+            },
+            "query": {
+              "params": [
+                "Pending prod-rep-core04",
+                "12h",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "min"
+            },
+            "type": "query"
+          },
+          {
+            "evaluator": {
+              "params": [
+                0
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "or"
+            },
+            "query": {
+              "params": [
+                "Pending prod-rep-core05",
+                "12h",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "min"
+            },
+            "type": "query"
+          }
+        ],
+        "executionErrorState": "keep_state",
+        "for": "5m",
+        "frequency": "1m",
+        "handler": 1,
+        "message": "One or more of the Analytics clusters does not appear to be completing its tasks.",
+        "name": "Pending Tasks By Server Alert",
+        "noDataState": "keep_state",
+        "notifications": [
+          {
+            "uid": "ALHoR_Qnz"
+          },
+          {
+            "uid": "IBwPXT67k"
+          }
+        ]
+      },
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 13
+      },
+      "hiddenSeries": false,
+      "id": 3,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{instance=~\"prod-rep-core01.hpl.com:9007\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "prod-rep-core01",
+          "refId": "Pending prod-rep-core01"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{instance=~\"prod-rep-core02.hpl.com:9007\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "prod-rep-core02",
+          "refId": "Pending prod-rep-core02"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{instance=~\"prod-rep-core03.hpl.com:9007\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "prod-rep-core03",
+          "refId": "Pending prod-rep-core03"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{instance=~\"prod-rep-core04.hpl.com:9007\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "prod-rep-core04",
+          "refId": "Pending prod-rep-core04"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{instance=~\"prod-rep-core05.hpl.com:9007\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "prod-rep-core05",
+          "refId": "Pending prod-rep-core05"
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "critical",
+          "fill": false,
+          "line": false,
+          "op": "gt",
+          "value": 0,
+          "visible": true
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Pending Tasks By Server",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:725",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:726",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "alert": {
+        "alertRuleTags": {},
+        "conditions": [
+          {
+            "evaluator": {
+              "params": [
+                0
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "and"
+            },
+            "query": {
+              "params": [
+                "Pending AddElasticube",
+                "1h",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "min"
+            },
+            "type": "query"
+          },
+          {
+            "evaluator": {
+              "params": [
+                0
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "or"
+            },
+            "query": {
+              "params": [
+                "Pending DeleteElasticube",
+                "2h",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "min"
+            },
+            "type": "query"
+          },
+          {
+            "evaluator": {
+              "params": [
+                0
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "or"
+            },
+            "query": {
+              "params": [
+                "Pending PopulateDatabase",
+                "12h",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "min"
+            },
+            "type": "query"
+          },
+          {
+            "evaluator": {
+              "params": [
+                0
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "or"
+            },
+            "query": {
+              "params": [
+                "Pending ReplaceElasticube",
+                "12h",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "min"
+            },
+            "type": "query"
+          }
+        ],
+        "executionErrorState": "keep_state",
+        "for": "5m",
+        "frequency": "1m",
+        "handler": 1,
+        "message": "Please see the Confluence page about Sisense 8 Troubleshooting here: https://confluence.rph.int/pages/viewpage.action?spaceKey=REP&title=Sisense+8+Troubleshooting\n\nEnvironment Details: https://confluence.rph.int/display/DEV/Analytics",
+        "name": "Pending Tasks By Task Type alert",
+        "noDataState": "keep_state",
+        "notifications": [
+          {
+            "uid": "IBwPXT67k"
+          }
+        ]
+      },
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 13
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{task_type=~\"DeleteElasticube\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "DeleteElasticube",
+          "refId": "Pending DeleteElasticube"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{task_type=~\"AddElasticube\", instance=~\"prod-rep-core.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "AddElasticube",
+          "refId": "Pending AddElasticube"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{task_type=~\"PopulateDatabase\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "PopulateDatabase",
+          "refId": "Pending PopulateDatabase"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{task_type=~\"ReplaceElasticube\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "ReplaceElasticube",
+          "refId": "Pending ReplaceElasticube"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{task_type=~\"RebuildElasticube\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "RebuildElasticube",
+          "refId": "Pending RebuildElasticube"
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "critical",
+          "fill": false,
+          "line": false,
+          "op": "gt",
+          "value": 0,
+          "visible": true
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Pending Tasks By Task Type",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:725",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:726",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 13
+      },
+      "hiddenSeries": false,
+      "id": 5,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{organization_type=~\"Unknown\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Unknown",
+          "refId": "Pending Unknown"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{organization_type=~\"Parent\", instance=~\"prod-rep-core.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Parent",
+          "refId": "Pending Surveillance"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{organization_type=~\"Child\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Child",
+          "refId": "Pending POCA"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Pending Tasks By Organization Type",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:725",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:726",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 13
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{product_type=~\"Poca\", instance=~\"prod-rep-core.*\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "POCA",
+          "refId": "Pending POCA"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{product_type=~\"Surveillance\", instance=~\"prod-rep-core.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Surveillance",
+          "refId": "Pending Surveillance"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Pending Tasks By Product",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:725",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:726",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "alert": {
+        "alertRuleTags": {},
+        "conditions": [
+          {
+            "evaluator": {
+              "params": [
+                0
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "and"
+            },
+            "query": {
+              "params": [
+                "Pending AddElasticube",
+                "1h",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "min"
+            },
+            "type": "query"
+          }
+        ],
+        "executionErrorState": "keep_state",
+        "for": "5m",
+        "frequency": "1m",
+        "handler": 1,
+        "message": "There are AddElasticube tasks that appear to be stuck and are likely to require manual intervention. \n\nPlease see the Confluence page about Sisense 8 Troubleshooting here: https://confluence.rph.int/pages/viewpage.action?spaceKey=REP&title=Sisense+8+Troubleshooting\n\nEnvironment Details: https://confluence.rph.int/display/DEV/Analytics",
+        "name": "Pending AddElasticube Tasks alert",
+        "noDataState": "keep_state",
+        "notifications": [
+          {
+            "uid": "IBwPXT67k"
+          },
+          {
+            "uid": "ALHoR_Qnz"
+          }
+        ]
+      },
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 21
+      },
+      "hiddenSeries": false,
+      "id": 12,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.17",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(p1s_analyticscore_worklist_tasks_filtered{task_type=~\"AddElasticube\", instance=~\"prod-rep-core.*\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "AddElasticube",
+          "refId": "Pending AddElasticube"
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "critical",
+          "fill": false,
+          "line": false,
+          "op": "gt",
+          "value": 0,
+          "visible": true
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Pending AddElasticube Tasks",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:725",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:726",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Analytics Core - Pending Tasks Summary",
+  "uid": "vshSrQwnk",
+  "version": 44
+}
